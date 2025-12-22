@@ -3,7 +3,7 @@
 <img src='examples/vidar_logo.png' width=90>
 
 <a href='https://arxiv.org/abs/2507.12898'><img src='https://img.shields.io/badge/arXiv-2507.12898-b31b1b.svg'></a>
-<a href='https://openreview.net/forum?id=gsvjCTIYPb'><img src='https://img.shields.io/badge/openreview-gsvjCTIYPb-b31b1b.svg'></a>
+<a href='https://arxiv.org/abs/2512.17661'><img src='https://img.shields.io/badge/arXiv-2512.17661-b31b1b.svg''</a>
 [![Project Page](https://img.shields.io/badge/Project-Website-blue)](https://embodiedfoundation.github.io/vidar_anypos)
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](https://huggingface.co/Xiang-cd/vidar)
 
@@ -98,7 +98,15 @@ If you find this project helpful for your research, please cite our paper:
       primaryClass={cs.LG},
       url={https://arxiv.org/abs/2507.12898}, 
 }
-
+@misc{feng2025vidarcembodiedvideodiffusion,
+      title={Vidarc: Embodied Video Diffusion Model for Closed-loop Control}, 
+      author={Yao Feng and Chendong Xiang and Xinyi Mao and Hengkai Tan and Zuyue Zhang and Shuhe Huang and Kaiwen Zheng and Haitian Liu and Hang Su and Jun Zhu},
+      year={2025},
+      eprint={2512.17661},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2512.17661}, 
+}
 ```
 
 ## 🙏 Acknowledgements
